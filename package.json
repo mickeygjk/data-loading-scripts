@@ -25,10 +25,10 @@
   "homepage": "https://github.com/NYCPlanning/data-loading-scripts#readme",
   "dependencies": {
     "download-file": "^0.1.5",
-    "fs-extra": "^4.0.1",
+    "fs-extra": "^4.0.3",
     "fs-path": "0.0.23",
     "ftp-get": "^0.3.1",
-    "mustache": "^2.2.1",
+    "mustache": "^2.3.2",
     "unzip": "^0.1.11"
   }
 }
