@@ -1,0 +1,15 @@
+{
+  "url": "https://data.cityofnewyork.us/api/views/vq35-j9qm/rows.csv?accessType=DOWNLOAD",
+  "saveFile": "dep_asbestos.csv",
+  "load": "csv",
+  "loadFiles": [
+    {
+      "file":"dep_asbestos.csv",
+      "table": "dep_asbestos"
+    }
+  ],
+  "csv": [
+    "create",
+    "copy"
+  ]
+}
