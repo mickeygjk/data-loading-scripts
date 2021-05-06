@@ -10,8 +10,24 @@ WHEN borough='STATEN ISLAND' THEN 5
 ELSE 0
 END || '-' || block || '-' || RIGHT(lot,4)
 
-UPDATE dob_jobapplications SET signoffdate = '03/15/2004' WHERE signoffdate = '31/51/2004';
+/*https://stackoverflow.com/questions/6730095/recognizing-invalid-dates-in-postgresql*/
+create function safe_cast(text,anyelement) 
+returns anyelement 
+language plpgsql as $$ 
+begin 
+    $0 := $1; 
+    return $0; 
+    exception when others then 
+        return $2; 
+end; $$;
+
 UPDATE dob_jobapplications SET
-specialactiondate = to_char(TO_TIMESTAMP(specialactiondate, 'MM/DD/YYYY'), 'YYYY-MM-DD'),
-prefilingdate = to_char(TO_TIMESTAMP(prefilingdate, 'MM/DD/YYYY'), 'YYYY-MM-DD'),
-signoffdate = to_char(TO_TIMESTAMP(signoffdate, 'MM/DD/YYYY'), 'YYYY-MM-DD');
+specialactiondate = safe_cast(specialactiondate, '1900-01-01'::date),
+latestactiondate = safe_cast(latestactiondate, '1900-01-01'::date),
+paid = safe_cast(paid, '1900-01-01'::date),
+fullypaid = safe_cast(fullypaid, '1900-01-01'::date),
+assigned = safe_cast(assigned, '1900-01-01'::date),
+approved = safe_cast(approved, '1900-01-01'::date),
+fullypermitted = safe_cast(fullypermitted, '1900-01-01'::date),
+dobrundate = safe_cast(dobrundate, '1900-01-01'::date),
+signoffdate = safe_cast(signoffdate, '1900-01-01'::date);
