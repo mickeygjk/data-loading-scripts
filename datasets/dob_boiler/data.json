@@ -1,0 +1,15 @@
+{
+  "url": "https://nycopendata.socrata.com/api/views/52dp-yji6/rows.csv?accessType=DOWNLOAD",
+  "saveFile": "dob_boiler.csv",
+  "load": "csv",
+  "loadFiles": [
+    {
+      "file":"dob_boiler.csv",
+      "table": "dob_boiler"
+    }
+  ],
+  "csv": [ 
+    "create",
+    "copy"
+  ] 
+}
